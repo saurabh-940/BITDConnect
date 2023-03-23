@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
-
+import dotenv from "dotenv";
+dotenv.config();
 mongoose.set("strictQuery", false);
 const Connection = async () => {
-  const url = "mongodb://127.0.0.1:27017/bitdevent";
+  const url = process.env.MONGO_URI;
   try {
     await mongoose.connect(url, {
       useNewUrlParser: true,
