@@ -3,6 +3,8 @@ import Connection from "./database/db.js";
 import router from "./Route/routes.js";
 import cors from "cors";
 import bodyParser from "body-parser";
+const path = require("path");
+
 
 const app = express();
 const PORT = 4000;
