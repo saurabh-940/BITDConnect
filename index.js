@@ -10,6 +10,12 @@ app.use(express.json({ limit: "10mb", extended: true }));
 app.use(
   express.urlencoded({ limit: "10mb", extended: true, parameterLimit: 50000 })
 );
+
+app.use(express.static(path.join(__dirname, "./my-app/build")));
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./my-app/build/index.html"));
+});
+
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
