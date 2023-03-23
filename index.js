@@ -3,7 +3,6 @@ import Connection from "./database/db.js";
 import router from "./Route/routes.js";
 import cors from "cors";
 import bodyParser from "body-parser";
-const path = require("path");
 
 
 const app = express();
@@ -13,10 +12,6 @@ app.use(
   express.urlencoded({ limit: "10mb", extended: true, parameterLimit: 50000 })
 );
 
-app.use(express.static(path.join(__dirname, "./my-app/build")));
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./my-app/build/index.html"));
-});
 
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
